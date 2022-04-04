@@ -1,0 +1,24 @@
+<h1>currency Convert</h1>
+<input type="number" [(ngModel)]="numToConvert">
+<p>from:</p>
+<select [(ngModel)]="soursCurrency">
+    <option *ngFor="let currency of coins" [ngValue]="currency">
+        {{currency.name}}
+    </option>
+</select>
+<p>to:</p><select [(ngModel)]="targetCurrency">
+    <option *ngFor="let currency of coins" [ngValue]="currency">
+        {{currency.name}}
+    </option>
+</select>
+
+<!-- <p-dropdown [options]="coins" [(ngModel)]="soursCurrency" placeholder="Select a City" optionLabel="name"></p-dropdown> -->
+
+<!-- <p-dropdown [options]="coins" [(ngModel)]="soursCurrency" optionLabel="name"></p-dropdown> -->
+<!-- <p-dropdown [options]="coins"  optionLabel="name"></p-dropdown> -->
+<button (click)="calculate()">חשב</button>
+<div *ngIf="targetCurrency">
+    <div style="background-color: blue">
+        <p>{{resolve}}</p>
+    </div>
+</div>
